@@ -5,10 +5,11 @@
     updatetime = 100; # Faster completion
 
     number = true;
-    relativenumber = true;
+    relativenumber = false;
     splitbelow = true;
     splitright = true;
     scrolloff = 4;
+    timeoutlen = 300;
 
     autoindent = true;
     clipboard = "unnamedplus";

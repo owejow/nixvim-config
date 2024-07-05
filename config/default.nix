@@ -3,6 +3,7 @@
     ./options.nix
     ./keymaps.nix
     ./colorschemes/catppuccin.nix
+    ./colorschemes/tokyonight.nix
 
     ./bufferline.nix
     ./cmp.nix
@@ -21,6 +22,7 @@
     ./utils/auto-pairs.nix
     ./utils/autosave.nix
     ./utils/blankline.nix
+    ./utils/lazygit.nix
     ./utils/telescope.nix
     ./utils/toggleterm.nix
     ./utils/which-key.nix
