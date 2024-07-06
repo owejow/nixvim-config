@@ -3,9 +3,8 @@
     ./options.nix
     ./keymaps.nix
     ./colorschemes/catppuccin.nix
-    ./colorschemes/tokyonight.nix
 
-    ./bufferline.nix
+    ./lualine.nix
     ./cmp.nix
     ./git.nix
     ./lightline.nix
