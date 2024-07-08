@@ -18,12 +18,26 @@
       options.desc = "Quit";
     }
 
-    # <leader>f
+    # <leader>c
     {
-      # Format file
-      key = "<leader>fm";
-      action = "<CMD>lua vim.lsp.buf.format()<CR>";
-      options.desc = "Format the current buffer";
+      mode = "n";
+      key = "<leader>ci";
+      options.desc = "Organize Imports";
+      action = {
+        __raw =
+          # lua
+          ''
+            function()
+              vim.lsp.buf.code_action({
+                apply = true,
+                context = {
+                  only = { "source.organizeImports" },
+                  diagnostics = {},
+                },
+              })
+            end
+          '';
+      };
     }
 
     # <leader>t
