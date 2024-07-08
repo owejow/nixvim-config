@@ -3,15 +3,6 @@
   keymaps = [
     # Global
     # Default mode is "" which means normal-visual-op
-    {
-      key = "<leader>c";
-      action = "+context";
-    }
-    {
-      key = "<leader>co";
-      action = "<CMD>TSContextToggle<CR>";
-      options.desc = "Toggle Treesitter context";
-    }
     # File
     {
       mode = "n";
@@ -33,41 +24,16 @@
     }
     {
       mode = "n";
-      key = "<leader>gt";
-      action = "+toggles";
-    }
-    {
-      key = "<leader>gtb";
-      action = "<CMD>Gitsigns toggle_current_line_blame<CR>";
-      options.desc = "Gitsigns current line blame";
-    }
-    {
-      key = "<leader>gtd";
-      action = "<CMD>Gitsigns toggle_deleted";
-      options.desc = "Gitsigns deleted";
-    }
-    {
-      key = "<leader>gd";
-      action = "<CMD>Gitsigns diffthis<CR>";
-      options.desc = "Gitsigns diff this buffer";
-    }
-    {
-      mode = "n";
-      key = "<leader>gr";
-      action = "+resets";
-    }
-    {
-      key = "<leader>grh";
-      action = "<CMD>Gitsigns reset_hunk<CR>";
-      options.desc = "Gitsigns reset hunk";
-    }
-    {
-      key = "<leader>grb";
-      action = "<CMD>Gitsigns reset_buffer<CR>";
-      options.desc = "Gitsigns reset current buffer";
+      key = "<leader>s";
+      action = "+search";
     }
 
     # Tabs
+    {
+      mode = "n";
+      key = "<leader>t";
+      action = "+tabs";
+    }
     {
       mode = "n";
       key = "<leader>tn";
@@ -93,39 +59,11 @@
       options.desc = "Go to the previous tab";
     }
 
-    # Terminal
-    {
-      # Escape terminal mode using ESC
-      mode = "t";
-      key = "<esc>";
-      action = "<C-\\><C-n>";
-      options.desc = "Escape terminal mode";
-    }
-
-    # Trouble 
     {
       mode = "n";
-      key = "<leader>d";
-      action = "+diagnostics/debug";
-    }
-    {
-      key = "<leader>dt";
-      action = "<CMD>TroubleToggle<CR>";
-      options.desc = "Toggle trouble";
-    }
-
-    # Rust
-    {
-      mode = "n";
-      key = "<leader>r";
-      action = "+rust";
-    }
-    {
-      # Start standalone rust-analyzer (fixes issues when opening files from nvim tree)
-      mode = "n";
-      key = "<leader>rs";
-      action = "<CMD>RustStartStandaloneServerForBuffer<CR>";
-      options.desc = "Start standalone rust-analyzer";
+      key = "<leader>q";
+      action = "<cmd>qa<cr>";
+      options.desc = "Quit";
     }
   ];
 }

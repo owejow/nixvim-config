@@ -12,14 +12,14 @@
       defaults = {
         mappings = {
           i = {
-            "<esc>" = {
-              __raw =
-                #  lua
-                ''
-                  function(...)
-                    return require("telescope.actions").close(...)
-                  end'';
-            };
+            # "<esc>" = {
+            #   __raw =
+            #     #  lua
+            #     ''
+            #       function(...)
+            #         return require("telescope.actions").close(...)
+            #       end'';
+            # };
           };
         };
       };
@@ -113,56 +113,6 @@
         action = "resume";
         options.desc = "Resume";
       };
-      "<leader>uC" = {
-        action = "colorscheme";
-        options.desc = "Colorscheme preview";
-      };
     };
   };
-  keymaps = [
-    {
-      mode = "n";
-      key = "<leader>fp";
-      action = "<cmd>Telescope projects<CR>";
-      options = { desc = "Projects"; };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>sd";
-      action = "<cmd>Telescope diagnostics bufnr=0<cr>";
-      options = { desc = "Document diagnostics"; };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>st";
-      action = "<cmd>TodoTelescope<cr>";
-      options = {
-        silent = true;
-        desc = "Todo (Telescope)";
-      };
-    }
-
-    # {
-    #   mode = "n";
-    #   key = "<leader>,";
-    #   action = "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>";
-    #   options = {
-    #     desc = "Switch Buffer";
-    #   };
-    # }
-  ];
-  extraConfigLua =
-    # lua
-    ''
-      local telescope = require('telescope')
-      telescope.setup{
-          pickers = {
-            colorscheme = {
-              enable_preview = true
-            }
-          }
-      }
-    '';
 }
