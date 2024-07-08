@@ -1,14 +1,24 @@
 {
   globals.mapleader = " ";
   keymaps = [
-    # Global
-    # Default mode is "" which means normal-visual-op
-    # File
+    {
+      key = "<leader>-";
+      action = "<C-W>s";
+      options.desc = "Split Window Below";
+    }
+    {
+      key = "<leader>|";
+      action = "<C-W>v";
+      options.desc = "Split Window Right";
+    }
     {
       mode = "n";
-      key = "<leader>f";
-      action = "+find/file";
+      key = "<leader>q";
+      action = "<cmd>qa<cr>";
+      options.desc = "Quit";
     }
+
+    # <leader>f
     {
       # Format file
       key = "<leader>fm";
@@ -16,24 +26,7 @@
       options.desc = "Format the current buffer";
     }
 
-    # Git    
-    {
-      mode = "n";
-      key = "<leader>g";
-      action = "+git";
-    }
-    {
-      mode = "n";
-      key = "<leader>s";
-      action = "+search";
-    }
-
-    # Tabs
-    {
-      mode = "n";
-      key = "<leader>t";
-      action = "+tabs";
-    }
+    # <leader>t
     {
       mode = "n";
       key = "<leader>tn";
@@ -59,11 +52,5 @@
       options.desc = "Go to the previous tab";
     }
 
-    {
-      mode = "n";
-      key = "<leader>q";
-      action = "<cmd>qa<cr>";
-      options.desc = "Quit";
-    }
   ];
 }
