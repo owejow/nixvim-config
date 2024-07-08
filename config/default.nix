@@ -1,5 +1,6 @@
 {
   imports = [
+    ./extra-plugins.nix
     ./options.nix
     ./keymaps.nix
     ./colorschemes/catppuccin.nix
