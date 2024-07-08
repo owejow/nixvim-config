@@ -21,6 +21,7 @@
         "K" = "hover";
         "<leader>cm" = "format";
         "<leader>cr" = "rename";
+        "<leader>ca" = "code_action";
       };
     };
     inc-rename.enable = true;

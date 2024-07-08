@@ -39,32 +39,5 @@
           '';
       };
     }
-
-    # <leader>t
-    {
-      mode = "n";
-      key = "<leader>tn";
-      action = "<CMD>tabnew<CR>";
-      options.desc = "Create new tab";
-    }
-    {
-      mode = "n";
-      key = "<leader>td";
-      action = "<CMD>tabclose<CR>";
-      options.desc = "Close tab";
-    }
-    {
-      mode = "n";
-      key = "<leader>ts";
-      action = "<CMD>tabnext<CR>";
-      options.desc = "Go to the sub-sequent tab";
-    }
-    {
-      mode = "n";
-      key = "<leader>tp";
-      action = "<CMD>tabprevious<CR>";
-      options.desc = "Go to the previous tab";
-    }
-
   ];
 }

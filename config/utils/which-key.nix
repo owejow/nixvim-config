@@ -6,8 +6,9 @@
       "<leader>f" = "+find/file";
       "<leader>g" = "+git";
       "<leader>s" = "+search";
-      "<leader>t" = "+tabs";
+      "<leader>x" = "+diagnostics/quickfix";
 
+      "<leader>ca" = "Code Action";
       "<leader>cm" = "Format Document";
       "<leader>cr" = "Rename Variable";
     };
