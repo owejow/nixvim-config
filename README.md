@@ -29,5 +29,5 @@ The configuration can be run from the project folder:
 The configuration can be run from the public repository using:
 
 ```bash
-    nix run github:Sapo-Dorado/nixvim-config
+    nix run github:owejow/nixvim-config
 ```
