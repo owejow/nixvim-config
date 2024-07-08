@@ -7,7 +7,6 @@
     ./lualine.nix
     ./cmp.nix
     ./git.nix
-    ./lightline.nix
 
     ./languages/treesitter.nix
     ./languages/treesitter-context.nix
@@ -21,6 +20,7 @@
     ./utils/auto-pairs.nix
     ./utils/autosave.nix
     ./utils/blankline.nix
+    ./utils/bufferline.nix
     ./utils/lazygit.nix
     ./utils/telescope.nix
     ./utils/toggleterm.nix

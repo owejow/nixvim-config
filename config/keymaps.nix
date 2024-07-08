@@ -1,39 +1,46 @@
 {
   globals.mapleader = " ";
   keymaps = [
-    # Global
-    # Default mode is "" which means normal-visual-op
-    # File
     {
-      mode = "n";
-      key = "<leader>f";
-      action = "+find/file";
+      key = "<leader>-";
+      action = "<C-W>s";
+      options.desc = "Split Window Below";
     }
     {
-      # Format file
-      key = "<leader>fm";
-      action = "<CMD>lua vim.lsp.buf.format()<CR>";
-      options.desc = "Format the current buffer";
+      key = "<leader>|";
+      action = "<C-W>v";
+      options.desc = "Split Window Right";
+    }
+    {
+      mode = "n";
+      key = "<leader>q";
+      action = "<cmd>qa<cr>";
+      options.desc = "Quit";
     }
 
-    # Git    
+    # <leader>c
     {
       mode = "n";
-      key = "<leader>g";
-      action = "+git";
-    }
-    {
-      mode = "n";
-      key = "<leader>s";
-      action = "+search";
+      key = "<leader>ci";
+      options.desc = "Organize Imports";
+      action = {
+        __raw =
+          # lua
+          ''
+            function()
+              vim.lsp.buf.code_action({
+                apply = true,
+                context = {
+                  only = { "source.organizeImports" },
+                  diagnostics = {},
+                },
+              })
+            end
+          '';
+      };
     }
 
-    # Tabs
-    {
-      mode = "n";
-      key = "<leader>t";
-      action = "+tabs";
-    }
+    # <leader>t
     {
       mode = "n";
       key = "<leader>tn";
@@ -59,11 +66,5 @@
       options.desc = "Go to the previous tab";
     }
 
-    {
-      mode = "n";
-      key = "<leader>q";
-      action = "<cmd>qa<cr>";
-      options.desc = "Quit";
-    }
   ];
 }

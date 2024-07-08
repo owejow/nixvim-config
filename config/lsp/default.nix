@@ -4,11 +4,14 @@
       enable = true;
       servers = {
         bashls.enable = true;
+        clangd.enable = true;
         elixirls.enable = true;
         gopls.enable = true;
+        lua-ls.enable = true;
         nixd.enable = true;
         ruff-lsp.enable = true;
-        lua-ls.enable = true;
+        tailwindcss.enable = true;
+        pyright.enable = true;
       };
       keymaps.lspBuf = {
         "gd" = "definition";
@@ -16,9 +19,12 @@
         "gt" = "type_definition";
         "gi" = "implementation";
         "K" = "hover";
+        "<leader>cm" = "format";
+        "<leader>cr" = "rename";
       };
     };
-    lsp-lines = { enable = true; };
+    inc-rename.enable = true;
+    lsp-lines.enable = true;
     rust-tools.enable = true;
   };
 

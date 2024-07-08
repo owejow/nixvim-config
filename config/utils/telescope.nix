@@ -7,23 +7,7 @@
       ui-select = { settings = { specific_opts = { codeactions = true; }; }; };
       undo = { enable = true; };
     };
-    # If you'd prefer Telescope not to enter a normal-like mode when hitting escape (and instead exiting), you can map <Esc> to do so via:
-    settings = {
-      defaults = {
-        mappings = {
-          i = {
-            # "<esc>" = {
-            #   __raw =
-            #     #  lua
-            #     ''
-            #       function(...)
-            #         return require("telescope.actions").close(...)
-            #       end'';
-            # };
-          };
-        };
-      };
-    };
+
     keymaps = {
       "<leader><space>" = {
         action = "find_files";
@@ -33,37 +17,13 @@
         action = "live_grep";
         options.desc = "Grep (root dir)";
       };
-      "<leader>:" = {
-        action = "command_history";
-        options.desc = "Command History";
-      };
-      "<leader>b" = {
-        action = "buffers";
-        options.desc = "+buffer";
-      };
-      "<leader>ff" = {
-        action = "find_files";
-        options.desc = "Find project files";
-      };
-      "<leader>fr" = {
-        action = "oldfiles";
-        options.desc = "Recent";
-      };
       "<leader>fb" = {
         action = "buffers";
         options.desc = "Buffers";
       };
-      "<C-p>" = {
+      "<leader>fg" = {
         action = "git_files";
         options.desc = "Search git files";
-      };
-      "<leader>gc" = {
-        action = "git_commits";
-        options.desc = "Commits";
-      };
-      "<leader>gs" = {
-        action = "git_status";
-        options.desc = "Status";
       };
       "<leader>sa" = {
         action = "autocommands";
@@ -81,7 +41,7 @@
         action = "commands";
         options.desc = "Commands";
       };
-      "<leader>sD" = {
+      "<leader>sd" = {
         action = "diagnostics";
         options.desc = "Workspace diagnostics";
       };
@@ -89,27 +49,19 @@
         action = "help_tags";
         options.desc = "Help pages";
       };
-      "<leader>sH" = {
-        action = "highlights";
-        options.desc = "Search Highlight Groups";
-      };
       "<leader>sk" = {
         action = "keymaps";
         options.desc = "Keymaps";
       };
-      "<leader>sM" = {
+      "<leader>sm" = {
         action = "man_pages";
         options.desc = "Man pages";
-      };
-      "<leader>sm" = {
-        action = "marks";
-        options.desc = "Jump to Mark";
       };
       "<leader>so" = {
         action = "vim_options";
         options.desc = "Options";
       };
-      "<leader>sR" = {
+      "<leader>sr" = {
         action = "resume";
         options.desc = "Resume";
       };
