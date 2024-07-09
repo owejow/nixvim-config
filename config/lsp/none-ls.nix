@@ -32,6 +32,9 @@
         shellharden.enable = true;
         shfmt.enable = true;
         stylua.enable = true;
+        clang_format.enable = true;
+        black.enable = true;
+        isort.enable = true;
         mix = {
           enable = true;
           withArgs =
