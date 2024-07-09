@@ -6,7 +6,7 @@
   };
   autoCmd = [
     {
-      event = [ "TermClose" ];
+      event = [ "BufRead" ];
       desc = "Open neo-tree on enter for directories";
       once = true;
 
