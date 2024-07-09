@@ -19,7 +19,6 @@
     ./lsp/trouble.nix
 
     ./utils/auto-pairs.nix
-    ./utils/autosave.nix
     ./utils/blankline.nix
     ./utils/bufferline.nix
     ./utils/lazygit.nix
