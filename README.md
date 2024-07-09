@@ -121,3 +121,16 @@ The keymap "<leader>/" is used to trigger the extension. Additional keybindings
 inside the window can be defined inside the extraConfigLua declaration.  
 
 Todo:  create a pull request for this plugin for [Nixvim](<https://github.com/nix-community/nixvim>)
+
+### Adding Prettier Code Folding
+
+Integrated the [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo) plugin into
+configuration. Nixvim natively supports this plugin. Added the file
+./config/utils/nvim-ufo.nix. Used sample configuration provided in the repo as
+a starting point. Folding is much prettier than the default nvim method.
+
+- todo: understand how to configure LSP based folding rather than tree-sitter based folding.
+
+- todo: get preview of code under fold to work as expected
+
+- todo: explore custimizations for specifically used languages
