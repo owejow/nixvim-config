@@ -23,12 +23,13 @@
     ./utils/blankline.nix
     ./utils/bufferline.nix
     ./utils/lazygit.nix
+    ./utils/neo-tree.nix
+    ./utils/notify.nix
+    ./utils/nvim-ufo.nix
     ./utils/telescope.nix
     ./utils/toggleterm.nix
     ./utils/which-key.nix
     ./utils/wilder.nix
-    ./utils/neo-tree.nix
-    ./utils/nvim-ufo.nix
 
   ];
 }
