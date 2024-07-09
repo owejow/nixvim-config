@@ -1,5 +1,6 @@
 {
   imports = [
+    ./extra-plugins.nix
     ./options.nix
     ./keymaps.nix
     ./colorschemes/catppuccin.nix
@@ -27,5 +28,7 @@
     ./utils/which-key.nix
     ./utils/wilder.nix
     ./utils/neo-tree.nix
+    ./utils/nvim-ufo.nix
+
   ];
 }
