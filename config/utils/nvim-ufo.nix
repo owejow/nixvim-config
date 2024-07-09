@@ -15,12 +15,6 @@
           winhighlight = "Normal:Folded";
           winblend = 0;
         };
-        mappings = {
-          scrollU = "<C-u>";
-          scrollD = "<C-d>";
-          jumpTop = "[";
-          jumpBot = "]";
-        };
       };
       provider_selector = {
         __raw =
@@ -35,50 +29,10 @@
       };
     };
   };
-  keymaps = [
-    {
-      key = "zR";
-      mode = "n";
-      action = { __raw = "require('ufo').openAllFolds"; };
-      options.desc = "open all folds";
-    }
-    {
-      key = "zM";
-      mode = "n";
-      action = { __raw = "require('ufo').closeAllFolds"; };
-      options.desc = "close all folds";
-    }
-    {
-      key = "zr";
-      mode = "n";
-      action = { __raw = "require('ufo').openFoldsExceptKinds"; };
-      options.desc = "open folds except kinds";
-    }
-    {
-      key = "zm";
-      mode = "n";
-      action = { __raw = "require('ufo').closeFoldsWith"; };
-      options.desc = "close folds with";
-    }
-    {
-      key = "K";
-      mode = "n";
-      options.desc = "peek into fold";
-      action = {
-        __raw =
-          # lua
-          ''
-            function()
-                local winid = require('ufo').peekFoldedLinesUnderCursor()
-                if not winid then
-                    -- choose one of coc.nvim and nvim lsp
-                    vim.fn.CocActionAsync('definitionHover') -- coc.nvim
-                    vim.lsp.buf.hover()
-                end
-            end
-
-          '';
-      };
-    }
-  ];
+  keymaps = [{
+    key = "zr";
+    mode = "n";
+    action = { __raw = "require('ufo').openAllFolds"; };
+    options.desc = "open all folds";
+  }];
 }
