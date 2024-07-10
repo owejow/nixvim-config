@@ -17,27 +17,5 @@
       action = "<cmd>qa<cr>";
       options.desc = "Quit";
     }
-
-    # <leader>c
-    {
-      mode = "n";
-      key = "<leader>ci";
-      options.desc = "Organize Imports";
-      action = {
-        __raw =
-          # lua
-          ''
-            function()
-              vim.lsp.buf.code_action({
-                apply = true,
-                context = {
-                  only = { "source.organizeImports" },
-                  diagnostics = {},
-                },
-              })
-            end
-          '';
-      };
-    }
   ];
 }
