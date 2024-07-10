@@ -10,6 +10,7 @@
         lua-ls.enable = true;
         nixd.enable = true;
         ruff-lsp.enable = true;
+        tsserver.enable = true;
         tailwindcss.enable = true;
         pyright.enable = true;
       };
@@ -21,6 +22,7 @@
         "K" = "hover";
         "<leader>cm" = "format";
         "<leader>cr" = "rename";
+        "<leader>ca" = "code_action";
       };
     };
     inc-rename.enable = true;

@@ -1,33 +1,37 @@
 { lib, pkgs, ... }:
 
 {
-  config.opts = {
-    updatetime = 100; # Faster completion
+  config = {
+    opts = {
+      updatetime = 100; # Faster completion
 
-    number = true;
-    relativenumber = false;
-    splitbelow = true;
-    splitright = true;
-    scrolloff = 4;
-    timeoutlen = 300;
+      number = true;
+      relativenumber = false;
+      splitbelow = true;
+      splitright = true;
+      scrolloff = 4;
+      timeoutlen = 300;
 
-    autoindent = true;
-    clipboard = "unnamedplus";
-    expandtab = true;
-    shiftwidth = 2;
-    smartindent = true;
-    tabstop = 2;
-    softtabstop = 2;
+      autoindent = true;
+      clipboard = "unnamedplus";
+      expandtab = true;
+      shiftwidth = 2;
+      smartindent = true;
+      tabstop = 2;
+      softtabstop = 2;
 
-    ignorecase = true;
-    incsearch = true;
-    smartcase = true;
-    wildmode = "list:longest";
+      ignorecase = true;
+      incsearch = true;
+      smartcase = true;
+      wildmode = "list:longest";
 
-    swapfile = false;
-    undofile = true; # Build-in persistent undo
+      swapfile = false;
+      undofile = true; # Build-in persistent undo
 
-    termguicolors = lib.mkForce pkgs.stdenv.isLinux;
-    foldlevelstart = 99;
+      termguicolors = lib.mkForce pkgs.stdenv.isLinux;
+      foldlevelstart = 99;
+    };
+    globals = { autoformat = true; };
   };
+
 }

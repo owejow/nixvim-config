@@ -111,6 +111,17 @@
           "<C-k>" = "cmp.mapping.select_prev_item()";
           "<S-Tab>" = "cmp.mapping.close()";
           "<Tab>" =
+            # lua
+            ''
+              function(fallback)
+                if require("luasnip").jumpable(1) then
+                  vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-next", true, true, true), "")
+                else
+                  fallback()
+                end
+              end
+            '';
+          "<Enter>" =
             # lua 
             ''
               function(fallback)
@@ -154,4 +165,5 @@
       };
     };
   };
+
 }
