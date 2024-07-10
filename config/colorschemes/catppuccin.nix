@@ -38,6 +38,19 @@
           };
         };
       };
+      highlight_overrides = {
+        all = {
+          __raw =
+            # lua
+            ''
+              function(colors) 
+                return {
+                    WinSeparator = { fg = colors.surface2 } 
+                  }
+              end
+            '';
+        };
+      };
     };
   };
 }

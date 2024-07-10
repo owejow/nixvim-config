@@ -135,3 +135,46 @@ a starting point. Folding is much prettier than the default nvim method.
 - todo: get preview of code under fold to work as expected
 
 - todo: explore custimizations for specifically used languages
+
+### Customizing Color Scheme
+
+Using the default catppuccin color scheme did not provide enough contrast for the
+window separator options. The highlight command in vim is used to specify colors
+for various parts of the editor.
+
+The "highlight_overrides" key as added ./config/colorschemes/catppuccin.nix. More
+examples on how to customize catppuccin inside neovim can be found at: [Catppuccin Neovim](https://github.com/catppuccin/nvim)
+
+```lua
+    highlight_overrides = {
+      all = {
+        __raw =
+          # lua
+          ''
+            function(colors) 
+              return {
+                  WinSeparator = { fg = colors.surface2 } 
+                }
+            end
+          '';
+      };
+    };
+
+```
+
+The color palletes for the various catppuccin themes can be found at:
+[Catppuccin Palette](https://catppuccin.com/palette)
+
+### Debugging Neovim
+
+Some useful tips for debugging neovim issues:
+
+```lua
+  -- prints currently loaded packages
+   vim.print(package.loaded)
+```
+
+```lua
+    -- The runtime path for a nixvim is quite long
+    vim.print(vim.api.nvim_list_runtime_paths())
+```
