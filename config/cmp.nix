@@ -11,8 +11,27 @@
 
     cmp_luasnip = { enable = true; };
 
+    cmp-cmdline = { enable = true; };
+
     cmp = {
       enable = true;
+
+      cmdline = {
+        "/" = {
+          mapping = { __raw = "cmp.mapping.preset.cmdline()"; };
+          sources = [{ name = "buffer"; }];
+        };
+        ":" = {
+          mapping = { __raw = "cmp.mapping.preset.cmdline()"; };
+          sources = [
+            { name = "path"; }
+            {
+              name = "cmdline";
+              option = { ignore_cmds = [ "Man" "!" ]; };
+            }
+          ];
+        };
+      };
 
       settings = {
         experimental = { ghost_text = true; };
@@ -120,6 +139,7 @@
               end
             '';
         };
+
       };
     };
   };
