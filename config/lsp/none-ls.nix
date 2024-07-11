@@ -37,6 +37,10 @@
         clang_format.enable = true;
         black.enable = true;
         isort.enable = true;
+        prettier = {
+          enable = true;
+          disableTsServerFormatter = true;
+        };
         mix = {
           enable = true;
           withArgs =
