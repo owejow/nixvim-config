@@ -131,7 +131,9 @@
             # lua
             ''
               function(fallback)
-                if require("luasnip").jumpable(1) then
+                if cmp.visible() then
+                  cmp.select_next_item()
+                elseif require("luasnip").jumpable(1) then
                   vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-next", true, true, true), "")
                 else
                   fallback()
