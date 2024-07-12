@@ -11,8 +11,27 @@
 
     cmp_luasnip = { enable = true; };
 
+    cmp-cmdline = { enable = true; };
+
     cmp = {
       enable = true;
+
+      cmdline = {
+        "/" = {
+          mapping = { __raw = "cmp.mapping.preset.cmdline()"; };
+          sources = [{ name = "buffer"; }];
+        };
+        ":" = {
+          mapping = { __raw = "cmp.mapping.preset.cmdline()"; };
+          sources = [
+            { name = "path"; }
+            {
+              name = "cmdline";
+              option = { ignore_cmds = [ "Man" "!" ]; };
+            }
+          ];
+        };
+      };
 
       settings = {
         experimental = { ghost_text = true; };
@@ -83,85 +102,46 @@
                    TabNine = "",
                  }
 
-                 local icon = icons[item.kind] or ""
-                 item.kind = string.format("%s %s", icon, item.kind or "")
-                 return item
+                item.kind = string.format("%s %s", icons[item.kind] or "", item.kind)
+
+                local widths = {
+                  abbr = 40,
+                  menu = 30,
+                }
+
+                for key, width in pairs(widths) do
+                  if item[key] and vim.fn.strdisplaywidth(item[key]) > width then
+                    item[key] = vim.fn.strcharpart(item[key], 0, width - 1) .. "…"
+                  end
                 end
+
+                return item
+              end
             '';
-        };
-
-        window = {
-          completion = {
-            winhighlight =
-              "FloatBorder:CmpBorder,Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel";
-            scrollbar = false;
-            sidePadding = 0;
-            border = [ "╭" "─" "╮" "│" "╯" "─" "╰" "│" ];
-          };
-
-          settings.documentation = {
-            border = [ "╭" "─" "╮" "│" "╯" "─" "╰" "│" ];
-            winhighlight =
-              "FloatBorder:CmpBorder,Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel";
-          };
         };
 
         mapping = {
           "<C-j>" = "cmp.mapping.select_next_item()";
           "<C-k>" = "cmp.mapping.select_prev_item()";
+          "<Down>" = "cmp.mapping.select_next_item()";
+          "<Up>" = "cmp.mapping.select_prev_item()";
           "<S-Tab>" = "cmp.mapping.close()";
+          "<Enter>" = "cmp.mapping.confirm({ select = true })";
           "<Tab>" =
             # lua
             ''
               function(fallback)
-                if require("luasnip").jumpable(1) then
+                if cmp.visible() then
+                  cmp.select_next_item()
+                elseif require("luasnip").jumpable(1) then
                   vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-next", true, true, true), "")
                 else
                   fallback()
                 end
               end
             '';
-          "<Enter>" =
-            # lua 
-            ''
-              function(fallback)
-                local line = vim.api.nvim_get_current_line()
-                if line:match("^%s*$") then
-                  fallback()
-                elseif cmp.visible() then
-                  cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
-                else
-                  fallback()
-                end
-              end
-            '';
-          "<Down>" =
-            # lua
-            ''
-              function(fallback)
-                if cmp.visible() then
-                  cmp.select_next_item()
-                elseif require("luasnip").expand_or_jumpable() then
-                  vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
-                else
-                  fallback()
-                end
-              end
-            '';
-          "<Up>" =
-            # lua
-            ''
-              function(fallback)
-                if cmp.visible() then
-                  cmp.select_prev_item()
-                elseif require("luasnip").jumpable(-1) then
-                  vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
-                else
-                  fallback()
-                end
-              end
-            '';
         };
+
       };
     };
   };
