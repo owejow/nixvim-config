@@ -17,6 +17,7 @@
     ./lsp/none-ls.nix
     ./lsp/trouble.nix
 
+    ./utils/actions-preview.nix
     ./utils/auto-pairs.nix
     ./utils/blankline.nix
     ./utils/bufferline.nix
