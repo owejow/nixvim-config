@@ -1,9 +1,9 @@
 {
   imports = [
-    ./actions-preview.nix
     ./auto-pairs.nix
     ./blankline.nix
     ./bufferline.nix
+    ./dressing.nix
     ./lazygit.nix
     ./neo-tree.nix
     ./noice.nix
