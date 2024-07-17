@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   plugins.telescope = {
     enable = true;
 
@@ -67,6 +67,9 @@
       };
     };
   };
+
+  extraPlugins = with pkgs.vimPlugins; [ telescope-live-grep-args-nvim ];
+
   extraConfigLua =
     # lua
     ''
