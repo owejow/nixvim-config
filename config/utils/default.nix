@@ -8,6 +8,7 @@
     ./neo-tree.nix
     ./noice.nix
     ./notify.nix
+    ./nvim-window-picker.nix
     ./nvim-ufo.nix
     ./telescope.nix
     ./toggleterm.nix
