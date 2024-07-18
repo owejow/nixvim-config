@@ -1,7 +1,7 @@
 {
   plugins.noice = {
     enable = true;
-    notify = { enabled = false; };
+    notify = { enabled = true; };
     messages = { enabled = true; };
 
     presets = {
@@ -11,12 +11,18 @@
       inc_rename = false;
       lsp_doc_border = false;
     };
-
     lsp = {
       message = { enabled = true; };
       progress = {
         enabled = true;
         view = "mini";
+      };
+      override = {
+        # added to remove warnings in checkhealth  if these options are set to false 
+        # need to resolve: https://github.com/folke/noice.nvim/issues/575
+        "vim.lsp.util.convert_input_to_markdown_lines" = true;
+        "vim.lsp.util.stylize_markdown" = true;
+        "cmp.entry.get_documentation" = true;
       };
     };
     popupmenu = {
