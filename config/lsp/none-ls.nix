@@ -43,7 +43,7 @@
         };
         mix = {
           enable = true;
-          withArgs =
+          settings =
             # lua
             ''
               {
