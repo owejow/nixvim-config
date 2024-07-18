@@ -14,5 +14,6 @@
     ./neo-tree.nix
     ./noice.nix
     ./nui.nix
+    ./mini-icons.nix
   ];
 }
