@@ -5,7 +5,7 @@
     ./lsp
     ./utils
     ./cmp.nix
-    ./extra-packages.nix
+    ./extra-files
     ./git.nix
     ./keymaps.nix
     ./lualine.nix
