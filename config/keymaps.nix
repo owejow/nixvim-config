@@ -17,5 +17,11 @@
       action = "<cmd>qa<cr>";
       options.desc = "Quit";
     }
+    {
+      mode = "t";
+      key = "<esc>";
+      action = "<c-\\><c-n>";
+      options.desc = "Enter Normal Mode";
+    }
   ];
 }
