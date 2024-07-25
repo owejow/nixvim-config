@@ -19,7 +19,7 @@
     }
     {
       mode = "t";
-      key = "<esc>";
+      key = "<C-n>";
       action = "<c-\\><c-n>";
       options.desc = "Enter Normal Mode";
     }
