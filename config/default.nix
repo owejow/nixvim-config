@@ -1,14 +1,15 @@
 {
   imports = [
     ./colorschemes
+    ./extra-files
+    ./git
     ./languages
-    ./lsp
+    ./navigation
+    ./status
     ./utils
     ./cmp.nix
-    ./extra-files
-    ./git.nix
+    ./extra-packages.nix
     ./keymaps.nix
-    ./lualine.nix
     ./options.nix
   ];
 }
