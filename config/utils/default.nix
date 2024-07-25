@@ -1,6 +1,5 @@
 {
   imports = [
-    ./notify
     ./nvim-window-picker
     ./telescope
     ./auto-pairs.nix
@@ -13,6 +12,7 @@
     ./which-key.nix
     ./neo-tree.nix
     ./noice.nix
+    ./notify.nix
     ./nui.nix
     ./mini-icons.nix
   ];
