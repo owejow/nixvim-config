@@ -7,13 +7,14 @@
     ./bufferline.nix
     ./dressing.nix
     ./lazygit.nix
-    ./nvim-ufo.nix
-    ./toggleterm.nix
-    ./which-key.nix
+    ./mini-icons.nix
     ./neo-tree.nix
     ./noice.nix
     ./notify.nix
     ./nui.nix
-    ./mini-icons.nix
+    ./nvim-ufo.nix
+    ./toggleterm.nix
+    ./vim-surround.nix
+    ./which-key.nix
   ];
 }
