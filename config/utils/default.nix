@@ -12,9 +12,9 @@
     ./noice.nix
     ./notify.nix
     ./nui.nix
+    ./nvim-surround.nix
     ./nvim-ufo.nix
     ./toggleterm.nix
-    ./vim-surround.nix
     ./which-key.nix
   ];
 }
