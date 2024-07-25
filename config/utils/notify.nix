@@ -15,5 +15,4 @@
     '';
     options = { desc = "Dismiss All Notifications"; };
   }];
-  extraConfigLua = lib.readFile ./extra-lua-config.lua;
 }

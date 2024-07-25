@@ -21,7 +21,14 @@
         "filename"
       ];
       lualine_x = [
-
+        # lua
+        ''
+          require("noice").api.status.command.get()
+        ''
+        # lua
+        ''
+          (vim.fn.reg_recording() == "" and "") or "Recording @" .. vim.fn.reg_recording()
+        ''
         {
           name = "diff";
           extraConfig = {

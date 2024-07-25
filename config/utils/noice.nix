@@ -55,5 +55,15 @@
         lang = "regex";
       };
     };
+    routes = [{
+      # Filter out write messages
+      filter = {
+        event = "msg_show";
+        kind = "";
+        find = "written";
+      };
+
+      opts = { skip = true; };
+    }];
   };
 }
