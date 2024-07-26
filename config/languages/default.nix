@@ -1,4 +1,1 @@
-{
-  imports =
-    [ ./treesitter.nix ./treesitter-context.nix ./rainbow-delimiters.nix ];
-}
+{ imports = [ ./lsp ./treesitter ]; }
