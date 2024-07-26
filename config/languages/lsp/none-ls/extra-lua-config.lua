@@ -1,3 +1,5 @@
+local null_ls = require("null-ls")
+
 function format_enabled()
   local buf = vim.api.nvim_get_current_buf()
   local gaf = vim.g.autoformat
@@ -42,3 +44,28 @@ function format_info()
     end,
   })
 end
+
+-- local haskell_format = {
+--   method = null_ls.FORMATTING,
+--   filetypes = { "haskell" },
+--   generator = null_ls.generator({
+--     command = "hindent",
+--     args = { "--stdin" },
+--     to_stdin = true,
+--     from_stderr = true,
+--     format = "line",
+--     check_exit_code = function(code, stderr)
+--       local success = code <= 1
+--
+--       if not success then
+--         -- can be noisy for things that run often (e.g. diagnostics), but can
+--         -- be useful for things that run on demand (e.g. formatting)
+--         print(stderr)
+--       end
+--
+--       return success
+--     end,
+--   }),
+-- }
+
+-- null_ls.register(haskell_format)

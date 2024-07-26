@@ -35,13 +35,13 @@
         shfmt.enable = true;
         stylua.enable = true;
         clang_format.enable = true;
-        black.enable = true;
+        black.enable = true; # python
         isort.enable = true;
         prettier = {
           enable = true;
           disableTsServerFormatter = true;
         };
-        mix = {
+        mix = { # erlang
           enable = true;
           settings =
             # lua

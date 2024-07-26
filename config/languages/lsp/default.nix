@@ -1,1 +1,1 @@
-{ imports = [ ./none-ls ./lsp.nix ./trouble.nix ]; }
+{ imports = [ ./none-ls ./haskell ./lsp.nix ./trouble.nix ./dap.nix ]; }

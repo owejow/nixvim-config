@@ -9,10 +9,16 @@
         gopls.enable = true;
         lua-ls.enable = true;
         nixd.enable = true;
-        ruff-lsp.enable = true;
-        tsserver.enable = true;
-        tailwindcss.enable = true;
         pyright.enable = true;
+        ruff-lsp.enable = true;
+        rust-analyzer = {
+          enable = true;
+          installRustc = true;
+          installCargo = true;
+        };
+        tailwindcss.enable = true;
+        tsserver.enable = true;
+        yamlls.enable = true;
       };
       keymaps.lspBuf = {
         "gd" = "definition";

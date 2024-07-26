@@ -11,5 +11,6 @@
     ./extra-packages.nix
     ./keymaps.nix
     ./options.nix
+    ./extra-packages.nix
   ];
 }

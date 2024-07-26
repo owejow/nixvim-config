@@ -31,7 +31,10 @@
       termguicolors = lib.mkForce pkgs.stdenv.isLinux;
       foldlevelstart = 99;
     };
-    globals = { autoformat = true; };
+    globals = {
+      autoformat = true;
+      howdy = "nono";
+    };
   };
 
 }
