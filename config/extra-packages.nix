@@ -1,14 +1,14 @@
-{ pkgs, ... }: {
-  extraPackages = with pkgs; [
-    ripgrep
-    fd
-    lldb
-    haskellPackages.fast-tags
-    haskellPackages.hoogle
-    haskellPackages.hindent
-    haskellPackages.ghci-dap
-    haskellPackages.haskell-debug-adapter
-    haskellPackages.haskell-language-server
-    luajitPackages.haskell-tools-nvim
+{ pkgs, nixpkgs-stable, ... }: {
+  extraPackages = [
+    nixpkgs-stable.ripgrep
+    nixpkgs-stable.fd
+    pkgs.lldb
+    pkgs.haskellPackages.fast-tags
+    pkgs.haskellPackages.hoogle
+    pkgs.haskellPackages.hindent
+    pkgs.haskellPackages.ghci-dap
+    pkgs.haskellPackages.haskell-debug-adapter
+    pkgs.haskellPackages.haskell-language-server
+    pkgs.luajitPackages.haskell-tools-nvim
   ];
 }
