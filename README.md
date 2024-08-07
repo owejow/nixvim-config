@@ -56,7 +56,7 @@ contains a sample configuration:
 ```lua
     local telescope = require("telescope")
     local lga_actions = require("telescope-live-grep-args.actions")
-    
+
     telescope.setup {
       extensions = {
         live_grep_args = {
@@ -77,7 +77,7 @@ contains a sample configuration:
         }
       }
     }
-    
+
     -- don't forget to load the extension
     telescope.load_extension("live_grep_args")
 ```
@@ -119,9 +119,9 @@ This snippet was included via the extraConfigLua option inside of ./config/utils
 ```
 
 The keymap "<leader>/" is used to trigger the extension. Additional keybindings
-inside the window can be defined inside the extraConfigLua declaration.  
+inside the window can be defined inside the extraConfigLua declaration.
 
-Todo:  create a pull request for this plugin for [Nixvim](<https://github.com/nix-community/nixvim>)
+Todo: create a pull request for this plugin for [Nixvim](https://github.com/nix-community/nixvim)
 
 ### Adding Prettier Code Folding
 
@@ -151,9 +151,9 @@ examples on how to customize catppuccin inside neovim can be found at: [Catppucc
         __raw =
           # lua
           ''
-            function(colors) 
+            function(colors)
               return {
-                  WinSeparator = { fg = colors.surface2 } 
+                  WinSeparator = { fg = colors.surface2 }
                 }
             end
           '';
@@ -177,4 +177,36 @@ Some useful tips for debugging neovim issues:
 ```lua
     -- The runtime path for a nixvim is quite long
     vim.print(vim.api.nvim_list_runtime_paths())
+```
+
+### How to get hash of git Repository Checkin
+
+1.  make sure that the command nix-prefetch is avaialble. If not,
+    you can run this command:
+
+    ```nix
+        nix-shell -p nix-prefetch
+    ```
+
+2.  run the command to get the nix hash:
+    this command:
+
+        ```nix
+            nix-prefetch fetchFromGitHub --owner nvim-lua --repo plenary.nvim --rev a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683
+        ```
+
+3.  The sha256 hash printed at the bottom of the output is the expected has:
+
+```verbatim
+
+    The fetcher will be called as follows:
+    > fetchFromGitHub {
+    >   owner = "nvim-lua";
+    >   repo = "plenary.nvim";
+    >   rev = "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683";
+    >   sha256 = "sha256:0000000000000000000000000000000000000000000000000000";
+    > }
+
+    sha256-5Jf2mWFVDofXBcXLbMa417mqlEPWLA+cQIZH/vNEV1g=
+
 ```
