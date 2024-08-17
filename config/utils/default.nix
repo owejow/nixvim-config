@@ -8,7 +8,8 @@
     ./nui.nix
     ./nvim-surround.nix
     ./nvim-ufo.nix
-    ./rainbow-delimiters.nix
+    # comment out because of issue of compatibility with treesitter causes hang in zig file saves
+    #./rainbow-delimiters.nix
     ./toggleterm.nix
     ./which-key.nix
   ];

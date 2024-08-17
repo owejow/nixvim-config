@@ -19,6 +19,7 @@
         tailwindcss.enable = true;
         tsserver.enable = true;
         yamlls.enable = true;
+        zls.enable = true;
       };
       keymaps.lspBuf = {
         "gd" = "definition";
