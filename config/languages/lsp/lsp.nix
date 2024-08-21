@@ -8,6 +8,7 @@
         elixirls.enable = true;
         gopls.enable = true;
         lua-ls.enable = true;
+        marksman.enable = true;
         nixd.enable = true;
         pyright.enable = true;
         ruff-lsp.enable = true;

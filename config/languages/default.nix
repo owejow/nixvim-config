@@ -1,1 +1,1 @@
-{ imports = [ ./lsp ./treesitter ]; }
+{ imports = [ ./lsp ./treesitter ./markview ]; }
