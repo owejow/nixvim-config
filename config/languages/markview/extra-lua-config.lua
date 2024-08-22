@@ -27,3 +27,11 @@ wk.add({
   end,
   desc = "Toggle Markview",
 })
+
+wk.add({
+  "<leader>cc",
+  function()
+    vim.api.nvim_command("cclose")
+  end,
+  desc = "close quickfix window",
+})
