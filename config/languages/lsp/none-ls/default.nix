@@ -41,6 +41,11 @@
           enable = true;
           disableTsServerFormatter = true;
         };
+        djlint = {
+          enable = true;
+          settings = { extra_args = [ "--reformat" ]; };
+
+        };
         mix = { # erlang
           enable = true;
           settings =
