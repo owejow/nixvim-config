@@ -1,6 +1,5 @@
 {
   imports = [
-    ./nvim-window-picker
     ./auto-pairs.nix
     ./blankline.nix
     ./dressing.nix

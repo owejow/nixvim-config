@@ -1,1 +1,1 @@
-{ imports = [ ./telescope ./neo-tree.nix ]; }
+{ imports = [ ./telescope ./nvim-tree ]; }
