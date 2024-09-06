@@ -46,7 +46,7 @@ function format_info()
 end
 
 -- increase timeout on formatting
-vim.lsp.buf.format({ timeout_ms = 4000 })
+vim.lsp.buf.format({ timeout_ms = 10000 })
 -- local haskell_format = {
 --   method = null_ls.FORMATTING,
 --   filetypes = { "haskell" },
