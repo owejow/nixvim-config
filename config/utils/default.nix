@@ -9,6 +9,7 @@
     ./nvim-ufo.nix
     ./rainbow-delimiters.nix
     ./toggleterm.nix
-    ./which-key.nix
+    ./icons.nix
+    ./which-key
   ];
 }

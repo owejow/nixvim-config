@@ -1,37 +1,51 @@
 {
   plugins.lualine = {
     enable = true;
-    globalstatus = true;
-    extensions = [ "neo-tree" ];
-    sections = {
-      lualine_a = [ "mode" ];
-      lualine_b = [ "branch" ];
-      lualine_c = [
-        {
-          name = "filetype";
-          extraConfig = {
+    settings = {
+      globalstatus = true;
+      extensions = [ "neo-tree" ];
+      sections = {
+        lualine_a = [ "mode" ];
+        lualine_b = [ "branch" ];
+        #lualine_c = [
+        #  {
+        #    name = "filetype";
+        #    extraConfig = {
+        #      icon_only = true;
+        #      separator = "";
+        #      padding = {
+        #        left = 1;
+        #        right = 0;
+        #      };
+        #    };
+        #  }
+        #  "filename"
+        #];
+
+        lualine_c = [
+          "filetype"
+          {
             icon_only = true;
             separator = "";
             padding = {
               left = 1;
               right = 0;
             };
-          };
-        }
-        "filename"
-      ];
-      lualine_x = [
-        # lua
-        ''
-          require("noice").api.status.command.get()
-        ''
-        # lua
-        ''
-          (vim.fn.reg_recording() == "" and "") or "Recording @" .. vim.fn.reg_recording()
-        ''
-        {
-          name = "diff";
-          extraConfig = {
+          }
+          "filename"
+        ];
+
+        lualine_x = [
+          # lua
+          ''
+            require("noice").api.status.command.get()
+          ''
+          # lua
+          ''
+            (vim.fn.reg_recording() == "" and "") or "Recording @" .. vim.fn.reg_recording()
+          ''
+          "diff"
+          {
             symbols = {
               added = " ";
               modified = " ";
@@ -51,36 +65,32 @@
                    end
                  end
               '';
-          };
-        }
-      ];
-      lualine_y = [
-        {
-          name = "progress";
-          extraConfig = {
+          }
+        ];
+        lualine_y = [
+          "progress"
+          {
             separator = " ";
             padding = {
               left = 1;
               right = 0;
             };
-          };
-        }
-        {
-          name = "location";
-          extraConfig = {
+          }
+          "location"
+          {
             padding = {
               left = 0;
               right = 1;
             };
-          };
-        }
-      ];
-      lualine_z = [
-        # lua
-        ''
-          " " .. os.date("%R")
-        ''
-      ];
+          }
+        ];
+        lualine_z = [
+          # lua
+          ''
+            " " .. os.date("%R")
+          ''
+        ];
+      };
     };
   };
 }

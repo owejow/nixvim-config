@@ -7,18 +7,13 @@
         clangd.enable = true;
         elixirls.enable = true;
         gopls.enable = true;
-        lua-ls.enable = true;
+        lua_ls.enable = true;
         marksman.enable = true;
         nixd.enable = true;
         pyright.enable = true;
-        ruff-lsp.enable = true;
-        rust-analyzer = {
-          enable = true;
-          installRustc = true;
-          installCargo = true;
-        };
+        ruff.enable = true;
         tailwindcss.enable = true;
-        tsserver.enable = true;
+        ts_ls.enable = true;
         yamlls.enable = true;
         zls.enable = true;
       };
@@ -35,7 +30,6 @@
     };
     inc-rename.enable = true;
     lsp-lines.enable = true;
-    rust-tools.enable = true;
   };
 
   diagnostics = { virtual_lines.only_current_line = true; };
