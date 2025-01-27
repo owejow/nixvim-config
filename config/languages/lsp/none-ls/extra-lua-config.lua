@@ -1,4 +1,6 @@
-local null_ls = require("null-ls")
+local null_ls = require("null-ls").setup({
+  default_timeout = 15000, --increase value to get rid
+})
 
 function format_enabled()
   local buf = vim.api.nvim_get_current_buf()
@@ -46,7 +48,7 @@ function format_info()
 end
 
 -- increase timeout on formatting
-vim.lsp.buf.format({ timeout_ms = 15000 })
+-- vim.lsp.buf.format({ timeout_ms = 15000 })
 -- local haskell_format = {
 --   method = null_ls.FORMATTING,
 --   filetypes = { "haskell" },
