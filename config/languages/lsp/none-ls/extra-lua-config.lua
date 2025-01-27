@@ -1,6 +1,7 @@
-local null_ls = require("null-ls").setup({
-  default_timeout = 15000, --increase value to get rid
-})
+-- require("null-ls").setup({
+--   default_timeout = 15000, --increase value to get rid
+--   debug = true,
+-- })
 
 function format_enabled()
   local buf = vim.api.nvim_get_current_buf()

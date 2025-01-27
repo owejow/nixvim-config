@@ -2,6 +2,7 @@
   plugins.none-ls = {
     enable = true;
     settings = {
+      default_timeout = 15000;
       on_attach =
         # lua
         ''
