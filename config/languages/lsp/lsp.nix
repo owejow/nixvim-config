@@ -4,18 +4,28 @@
       enable = true;
       servers = {
         bashls.enable = true;
+        cssls.enable = true;
         clangd.enable = true;
         elixirls.enable = true;
         gopls.enable = true;
+        html.enable = true;
         lua_ls.enable = true;
+        jsonls.enable = true;
         marksman.enable = true;
-        nixd.enable = true;
+        nixd = {
+          enable = true;
+          settings = {
+            formatting.command = [ "nixpkgs-fmt" ];
+            nixpkgs.expr = "import <nixpkgs> {}";
+          };
+        };
         pyright.enable = true;
         ruff.enable = true;
         tailwindcss.enable = true;
         ts_ls.enable = true;
         yamlls.enable = true;
         zls.enable = true;
+
       };
       keymaps.lspBuf = {
         "gd" = "definition";
@@ -32,5 +42,5 @@
     lsp-lines.enable = true;
   };
 
-  diagnostics.settings = { virtual_lines.only_current_line = true; };
+  diagnostic.settings = { virtual_lines.only_current_line = true; };
 }

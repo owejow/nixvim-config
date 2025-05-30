@@ -1,5 +1,6 @@
 {
   imports = [
+    ./blink-cmp
     ./colorschemes
     ./extra-files
     ./git
