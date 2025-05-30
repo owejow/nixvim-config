@@ -1,1 +1,1 @@
-{ imports = [ ./lsp ./treesitter ./nvim-colorizer ]; }
+{ imports = [ ./lsp ./treesitter ./nvim-colorizer ./luasnip ]; }
