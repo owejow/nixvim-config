@@ -1,10 +1,1 @@
-{
-  imports = [
-    ./none-ls
-    ./haskell
-    ./lsp.nix
-    ./trouble.nix
-    ./dap.nix
-    ./rustaceanvim.nix
-  ];
-}
+{ imports = [ ./none-ls ./lsp.nix ./trouble.nix ]; }

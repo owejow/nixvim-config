@@ -1,11 +1,11 @@
 { lib, ... }@inputs: {
-  plugins.notify = {
+  plugins.notify.settings = {
     enable = true;
-    backgroundColour = "#000000";
+    background_colour = "#000000";
     fps = 60;
     render = "default";
     timeout = 500;
-    topDown = true;
+    top_down = true;
   };
   keymaps = [{
     mode = "n";
