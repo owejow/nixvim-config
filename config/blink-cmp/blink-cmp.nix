@@ -8,6 +8,7 @@
       settings = {
         appearance = {
           use_nvim_cmp_as_default = true;
+          nerd_font_variant = "mono";
           appearance = {
             # Blink does not expose its default kind icons so you must copy them all (or set your custom ones) and add Copilot
             kind_icons = {
@@ -44,7 +45,7 @@
           accept = { auto_brackets = { enabled = false; }; };
 
           documentation = {
-            auto_show = true;
+            auto_show = false;
             auto_show_delay_ms = 200;
 
             window = { border = "rounded"; };
@@ -52,14 +53,7 @@
 
           ghost_text = { enabled = true; };
         };
-        fuzzy = {
-          implementation = "rust";
-
-          prebuilt_binaries = {
-            download = false;
-            force_version = "v${pkgs.vimPlugins.blink-cmp.version}";
-          };
-        };
+        fuzzy = { implementation = "rust"; };
         snippets = { preset = "luasnip"; };
 
         sources = {
@@ -67,8 +61,6 @@
             "buffer"
             "cmdline"
             "dictionary"
-            "emoji"
-            "git"
             "lsp"
             "path"
             "ripgrep"
@@ -119,16 +111,6 @@
               opts = { };
             };
 
-            git = {
-              module = "blink-cmp-git";
-              name = "git";
-              score_offset = 100;
-              opts = {
-                commit = { };
-                git_centers = { git_hub = { }; };
-              };
-            };
-
             ripgrep = {
               async = true;
               module = "blink-ripgrep";
@@ -154,17 +136,9 @@
               module = "blink-cmp-spell";
               name = "Spell";
               score_offset = 100;
-              opts = {
-
-              };
+              opts = { };
             };
 
-            emoji = {
-              module = "blink-emoji";
-              name = "Emoji";
-              score_offset = 20;
-              opts = { insert = true; };
-            };
           };
         };
       };
