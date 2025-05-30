@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+_: {
   plugins = {
     blink-cmp = {
       enable = true;
@@ -57,16 +57,8 @@
         snippets = { preset = "luasnip"; };
 
         sources = {
-          default = [
-            "buffer"
-            "cmdline"
-            "dictionary"
-            "lsp"
-            "path"
-            "ripgrep"
-            "snippets"
-            "spell"
-          ];
+          default =
+            [ "buffer" "cmdline" "dictionary" "lsp" "path" "snippets" "spell" ];
           keymap = { preset = "default"; };
           signature = {
             enabled = true;
@@ -88,13 +80,12 @@
             };
 
             buffer = {
-              name = "Buffer";
+              name = "buffer";
               module = "blink.cmp.sources.buffer";
               score_offset = 0;
             };
-
             path = {
-              name = "Path";
+              name = "path";
               module = "blink.cmp.sources.path";
               score_offset = 0;
               fallbacks = [ "buffer" ];
@@ -108,14 +99,15 @@
               module = "blink-cmp-dictionary";
               name = "Dict";
               min_keyword_length = 3;
+              score_offset = 100;
               opts = { };
             };
 
             ripgrep = {
               async = true;
               module = "blink-ripgrep";
-              name = "Ripgrep";
-              score_offset = 1;
+              name = "ripgrep";
+              score_offset = 100;
               opts = {
                 prefix_min_len = 3;
                 context_size = 5;
@@ -131,11 +123,10 @@
               };
 
             };
-
             spell = {
               module = "blink-cmp-spell";
               name = "Spell";
-              score_offset = 100;
+              score_offset = 30;
               opts = { };
             };
 
