@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs-stable, ... }: {
+{ nixpkgs-stable, ... }: {
   extraPackages = [
     nixpkgs-stable.ripgrep
     nixpkgs-stable.fd
