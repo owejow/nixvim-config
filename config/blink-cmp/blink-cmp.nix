@@ -54,13 +54,13 @@ _: {
         fuzzy = { implementation = "rust"; };
         snippets = { preset = "luasnip"; };
 
+        keymap = { preset = "default"; };
+        signature = {
+          enabled = true;
+          window = { border = "rounded"; };
+        };
         sources = {
           default = [ "buffer" "cmdline" "lsp" "path" "snippets" "omni" ];
-          keymap = { preset = "default"; };
-          signature = {
-            enabled = true;
-            window = { border = "rounded"; };
-          };
 
           providers = {
             lsp = {
