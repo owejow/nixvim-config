@@ -7,7 +7,7 @@
         options.desc = "[F]ind [F]iles";
       };
 
-      "<leader>fg" = {
+      "<leader>/" = {
         action = "live_grep";
         options.desc = "Ripgrep files";
       };
@@ -57,11 +57,11 @@
 
       "<leader><leader>" = {
         action = "buffers";
-        options = { desc = "[,] Find existing Buffers "; };
+        options = { desc = "[ ] Find existing Buffers "; };
       };
-      "<leader>/" = {
+      "<leader>bg" = {
         action = "lgrep_curbuf";
-        options = { desc = "[/] Live grep the current buffer"; };
+        options = { desc = "[bg] Live grep the current buffer"; };
       };
 
     };
