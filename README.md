@@ -38,6 +38,11 @@ Would like to capture process of refining the neovim configuration file for lear
 
 ### Adding Live Grep Args to Telescope
 
+:> [!WARNING]
+
+> The Telescope package has been replaced by fzf-lua package. The instructions were left there
+> for future reference.
+
 The package [Live Grep Args](https://github.com/nvim-telescope/telescope-live-grep-args.nvim) enables passing
 arguments to the grep command.
 

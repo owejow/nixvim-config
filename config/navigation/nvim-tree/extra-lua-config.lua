@@ -2,7 +2,13 @@ local function my_on_attach(bufnr)
   local api = require("nvim-tree.api")
 
   local function opts(desc)
-    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    return {
+      desc = "nvim-tree: " .. desc,
+      buffer = bufnr,
+      noremap = true,
+      silent = true,
+      nowait = true,
+    }
   end
 
   -- default mappings
@@ -15,6 +21,7 @@ end
 
 -- pass to setup along with your other options
 require("nvim-tree").setup({
+  update_cwd = true,
   ---
   on_attach = my_on_attach,
   ---

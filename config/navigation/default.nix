@@ -1,1 +1,1 @@
-{ imports = [ ./telescope ./nvim-tree ]; }
+{ imports = [ ./fzf-lua ./nvim-tree ]; }
