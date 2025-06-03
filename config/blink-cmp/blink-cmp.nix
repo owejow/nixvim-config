@@ -40,27 +40,50 @@ _: {
           };
         };
         completion = {
-          accept = { auto_brackets = { enabled = false; }; };
+          accept = {
+            auto_brackets = {
+              enabled = false;
+            };
+          };
 
           documentation = {
             auto_show = false;
             auto_show_delay_ms = 200;
 
-            window = { border = "rounded"; };
+            window = {
+              border = "rounded";
+            };
           };
 
-          ghost_text = { enabled = true; };
+          ghost_text = {
+            enabled = true;
+          };
         };
-        fuzzy = { implementation = "rust"; };
-        snippets = { preset = "luasnip"; };
+        fuzzy = {
+          implementation = "rust";
+        };
+        snippets = {
+          preset = "luasnip";
+        };
 
-        keymap = { preset = "default"; };
+        keymap = {
+          preset = "default";
+        };
         signature = {
           enabled = true;
-          window = { border = "rounded"; };
+          window = {
+            border = "rounded";
+          };
         };
         sources = {
-          default = [ "buffer" "cmdline" "lsp" "path" "snippets" "omni" ];
+          default = [
+            "buffer"
+            "cmdline"
+            "lsp"
+            "path"
+            "snippets"
+            "omni"
+          ];
 
           providers = {
             lsp = {

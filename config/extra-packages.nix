@@ -1,4 +1,5 @@
-{ nixpkgs-stable, ... }: {
+{ nixpkgs-stable, ... }:
+{
   extraPackages = [
     nixpkgs-stable.ripgrep
     nixpkgs-stable.fd
@@ -7,5 +8,8 @@
     nixpkgs-stable.viu
     nixpkgs-stable.ueberzugpp
     nixpkgs-stable.chafa
+    nixpkgs-stable.gofumpt
+    nixpkgs-stable.isort
+    nixpkgs-stable.black
   ];
 }

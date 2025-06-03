@@ -11,10 +11,10 @@
         incremental_selection = {
           enable = true;
           keymaps = {
-            init_selection = "<leader>gnn";
-            node_incremental = "<leader>grn";
-            scope_incremental = "<leader>grc";
-            node_decremental = "<leader>grm";
+            init_selection = "<Enter>";
+            node_incremental = "<Enter>";
+            scope_incremental = false;
+            node_decremental = "<Delete>";
           };
         };
       };
