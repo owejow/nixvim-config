@@ -1,1 +1,7 @@
-{ imports = [ ./fzf-lua ./nvim-tree ]; }
+{
+  imports = [
+    ./oil.nix
+    ./fzf-lua
+    ./nvim-tree
+  ];
+}
