@@ -18,7 +18,7 @@
       };
 
       "<leader>fk" = {
-        action = "find_keymaps";
+        action = "keymaps";
         options = { desc = "[F]ind [K]eymaps"; };
       };
 
