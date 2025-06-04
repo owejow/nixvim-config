@@ -1,158 +1,240 @@
-_: {
-  plugins = {
-    blink-cmp = {
-      enable = true;
-      setupLspCapabilities = true;
-      autoLoad = true;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  extraPackages = lib.mkIf config.plugins.blink-cmp.enable (
+    with pkgs;
+    [
+      curl
+      git
+      # blink-cmp-dictionary
+      cat
+      fzf
+      wordnet # has wn utility
+    ]
+  );
 
-      settings = {
-        appearance = {
-          use_nvim_cmp_as_default = true;
-          nerd_font_variant = "mono";
-          # Blink does not expose its default kind icons so you must copy them all (or set your custom ones) and add Copilot
-          kind_icons = {
-            Class = "󱡠";
-            Color = "󰏘";
-            Constant = "󰏿";
-            Constructor = "󰒓";
-            Copilot = "";
-            Enum = "󰦨";
-            EnumMember = "󰦨";
-            Event = "󱐋";
-            Field = "󰜢";
-            File = "󰈔";
-            Folder = "󰉋";
-            Function = "󰊕";
-            Interface = "󱡠";
-            Keyword = "󰻾";
-            Method = "󰊕";
-            Module = "󰅩";
-            Operator = "󰪚";
-            Property = "󰖷";
-            Reference = "󰬲";
-            Snippet = "󱄽";
-            Struct = "󱡠";
-            Text = "󰉿";
-            TypeParameter = "󰬛";
-            Unit = "󰪚";
-            Value = "󰦨";
-            Variable = "󰆦";
-          };
-        };
-        completion = {
-          accept = {
-            auto_brackets = {
-              enabled = false;
+  extraPlugins = with pkgs.vimPlugins; [
+    blink-nerdfont-nvim
+    blink-cmp-spell
+  ];
+  plugins = lib.mkMerge [
+    {
+      blink-cmp = {
+        enable = true;
+
+        settings = {
+          cmdline = {
+            completion = {
+              list.selection = {
+                preselect = false;
+              };
+              menu.auto_show = true;
             };
           };
+          completion = {
+            ghost_text.enabled = true;
+            documentation = {
+              auto_show = true;
+              window.border = "rounded";
+            };
 
-          documentation = {
-            auto_show = false;
-            auto_show_delay_ms = 200;
-
-            window = {
+            list.selection = {
+              auto_insert = false;
+              preselect = true;
+            };
+            menu = {
               border = "rounded";
-            };
-          };
-
-          ghost_text = {
-            enabled = true;
-          };
-        };
-        fuzzy = {
-          implementation = "rust";
-        };
-        snippets = {
-          preset = "luasnip";
-        };
-
-        keymap = {
-          preset = "default";
-        };
-        signature = {
-          enabled = true;
-          window = {
-            border = "rounded";
-          };
-        };
-        sources = {
-          default = [
-            "buffer"
-            "cmdline"
-            "lsp"
-            "path"
-            "snippets"
-            "omni"
-          ];
-
-          providers = {
-            lsp = {
-              name = "LSP";
-              module = "blink.cmp.sources.lsp";
-              async = false;
-              enabled = true;
-              max_items = null;
-              min_keyword_length = 0;
-              override = null;
-              score_offset = 4;
-              should_show_items = true;
-              timeout_ms = 2000;
-            };
-            omni = {
-              name = "Omini";
-              module = "blink.cmp.sources.complete_func";
-              score_offset = 10;
-
-            };
-
-            buffer = {
-              name = "buffer";
-              module = "blink.cmp.sources.buffer";
-              score_offset = 0;
-            };
-
-            cmdline = {
-              name = "cmdline";
-              module = "blink.cmp.sources.cmdline";
-              score_offset = 0;
-            };
-
-            path = {
-              name = "path";
-              module = "blink.cmp.sources.path";
-              score_offset = 0;
-              fallbacks = [ "buffer" ];
-              opts = {
-                label_trailing_slash = true;
-                show_hidden_files_by_default = false;
-                trailing_slash = false;
+              draw = {
+                columns = [
+                  {
+                    __unkeyed-1 = "label";
+                  }
+                  {
+                    __unkeyed-1 = "kind_icon";
+                    __unkeyed-2 = "kind";
+                    gap = 1;
+                  }
+                  { __unkeyed-1 = "source_name"; }
+                ];
+                components = {
+                  kind_icon = {
+                    ellipsis = false;
+                    text.__raw = ''
+                      function(ctx)
+                        local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind)
+                        -- Check for both nil and the default fallback icon
+                        if not kind_icon or kind_icon == '󰞋' then
+                          -- Use our configured kind_icons
+                          return require('blink.cmp.config').appearance.kind_icons[ctx.kind] or ""
+                        end
+                        return kind_icon
+                      end,
+                      -- Optionally, you may also use the highlights from mini.icons
+                      highlight = function(ctx)
+                        local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+                        return hl
+                      end
+                    '';
+                  };
+                };
               };
             };
+          };
+          fuzzy = {
+            implementation = "rust";
+            prebuilt_binaries = {
+              download = false;
+            };
+          };
+          appearance = {
+            use_nvim_cmp_as_default = true;
+            kind_icons = {
+              Copilot = "";
+            };
+          };
+          keymap = {
+            preset = "enter";
+            # NOTE: If you prefer Tab/S-Tab selection
+            # But, find myself accidentally interrupting tabbing for movement
+            # "<A-Tab>" = [
+            #   "snippet_forward"
+            #   "fallback"
+            # ];
+            # "<A-S-Tab>" = [
+            #   "snippet_backward"
+            #   "fallback"
+            # ];
+            # "<Tab>" = [
+            #   "select_next"
+            #   "fallback"
+            # ];
+            # "<S-Tab>" = [
+            #   "select_prev"
+            #   "fallback"
+            # ];
+          };
+          signature = {
+            enabled = true;
+            window.border = "rounded";
+          };
+          sources = {
+            default.__raw = ''
+              function(ctx)
+                -- Base sources that are always available
+                local base_sources = { 'buffer', 'lsp', 'path', 'snippets' }
 
-            #ripgrep = {
-            #  async = true;
-            #  module = "blink-ripgrep";
-            #  name = "ripgrep";
-            #  score_offset = 100;
-            #  opts = {
-            #    prefix_min_len = 3;
-            #    context_size = 5;
-            #    max_filesize = "1M";
-            #    project_root_marker = ".git";
-            #    project_root_fallback = true;
-            #    search_casing = "--ignore-case";
-            #    additional_rg_options = { };
-            #    fallback_to_regex_highlighting = true;
-            #    ignore_paths = { };
-            #    additional_paths = { };
-            #    debug = false;
-            #  };
+                -- Build common sources list dynamically based on enabled plugins
+                local common_sources = vim.deepcopy(base_sources)
 
-            #};
+                -- Add optional sources based on plugin availability
+                ${lib.optionalString config.plugins.blink-cmp-dictionary.enable "table.insert(common_sources, 'dictionary')"}
+                ${lib.optionalString config.plugins.blink-emoji.enable "table.insert(common_sources, 'emoji')"}
+                ${lib.optionalString (lib.elem pkgs.vimPlugins.blink-nerdfont-nvim config.extraPlugins) "table.insert(common_sources, 'nerdfont')"}
+                ${lib.optionalString config.plugins.blink-cmp-spell.enable "table.insert(common_sources, 'spell')"}
+                ${lib.optionalString config.plugins.blink-ripgrep.enable "table.insert(common_sources, 'ripgrep')"}
+                ${lib.optionalString (lib.elem pkgs.vimPlugins.blink-cmp-npm-nvim config.extraPlugins) "if vim.fn.expand('%:t') == 'package.json' then table.insert(common_sources, 'npm') end"}
 
+                -- Special context handling
+                local success, node = pcall(vim.treesitter.get_node)
+                if success and node and vim.tbl_contains({ 'comment', 'line_comment', 'block_comment' }, node:type()) then
+                  return { 'buffer', 'spell', 'dictionary' }
+                elseif vim.bo.filetype == 'gitcommit' then
+                  local git_sources = { 'buffer', 'spell', 'dictionary' }
+                  ${lib.optionalString config.plugins.blink-cmp-git.enable "table.insert(git_sources, 'git')"}
+                  ${lib.optionalString (lib.elem pkgs.vimPlugins.blink-cmp-conventional-commits config.extraPlugins) "table.insert(git_sources, 'conventional_commits')"}
+                  return git_sources
+                
+                ${lib.optionalString config.plugins.easy-dotnet.enable # Lua
+                  ''
+                    elseif vim.bo.filetype == "cs" or vim.bo.filetype == "fsharp" or vim.bo.filetype == "vb" or vim.bo.filetype == "razor" or vim.bo.filetype == "xml" then
+                      -- For .NET filetypes, add easy-dotnet to the sources
+                      local dotnet_sources = vim.deepcopy(common_sources)
+                      table.insert(dotnet_sources, 'easy-dotnet')
+                      return dotnet_sources
+                  ''
+                }
+                else
+                  return common_sources
+                end
+              end
+            '';
+            providers = {
+              # BUILT-IN SOURCES
+              lsp.score_offset = 4;
+              dictionary = lib.mkIf config.plugins.blink-cmp-dictionary.enable {
+                name = "Dict";
+                module = "blink-cmp-dictionary";
+                min_keyword_length = 3;
+              };
+              emoji = lib.mkIf config.plugins.blink-emoji.enable {
+                name = "Emoji";
+                module = "blink-emoji";
+                score_offset = 1;
+              };
+              git = lib.mkIf config.plugins.blink-cmp-git.enable {
+                name = "Git";
+                module = "blink-cmp-git";
+                enabled = true;
+                score_offset = 100;
+                should_show_items.__raw = ''
+                  function()
+                    return vim.o.filetype == 'gitcommit' or vim.o.filetype == 'markdown'
+                  end
+                '';
+                opts = {
+                  git_centers = {
+                    github = {
+                      issue = {
+                        on_error.__raw = "function(_,_) return true end";
+                      };
+                    };
+                  };
+                };
+              };
+              ripgrep = lib.mkIf config.plugins.blink-ripgrep.enable {
+                name = "Ripgrep";
+                module = "blink-ripgrep";
+                async = true;
+                score_offset = 1;
+              };
+              spell = lib.mkIf config.plugins.blink-cmp-spell.enable {
+                name = "Spell";
+                module = "blink-cmp-spell";
+                score_offset = 1;
+              };
+              nerdfont = lib.mkIf (lib.elem pkgs.vimPlugins.blink-nerdfont-nvim config.extraPlugins) {
+                module = "blink-nerdfont";
+                name = "Nerd Fonts";
+                score_offset = 15;
+                opts = {
+                  insert = true;
+                };
+              };
+              easy-dotnet = lib.mkIf config.plugins.easy-dotnet.enable {
+                module = "easy-dotnet.completion.blink";
+                name = "easy-dotnet";
+                async = true;
+                score_offset = 1000;
+                enabled.__raw = ''
+                  function()
+                    return vim.bo.filetype == "xml"
+                  end
+                '';
+              };
+            };
           };
         };
       };
-    };
-  };
+
+      blink-cmp-dictionary.enable = true;
+      blink-cmp-git.enable = true;
+      blink-cmp-spell.enable = true;
+      blink-emoji.enable = true;
+      blink-ripgrep.enable = true;
+    }
+  ];
 }

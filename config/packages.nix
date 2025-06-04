@@ -6,9 +6,11 @@ in
   extraPackages = [
     pkg.biome
     pkg.chafa
+    pkg.curl
     pkg.clang-tools
     pkg.cmake-format
     pkg.fd
+    pkg.fzf
     pkg.gotools
     pkg.gofumpt
     pkg.golines
