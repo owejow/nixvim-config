@@ -26,7 +26,6 @@ in
     pkg.stylua
     pkg.ueberzugpp
     pkg.viu
-    pkg.wordnet
     pkg.yamlfmt
   ];
 }
