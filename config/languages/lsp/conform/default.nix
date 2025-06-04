@@ -14,6 +14,9 @@
         c = [ "clang-format" ];
         cpp = [ "clang-format" ];
         css = [ "prettierd" ];
+        elixir = {
+          lsp_format = "always";
+        };
 
         go = [
           "goimports"
