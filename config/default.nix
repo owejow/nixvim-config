@@ -1,17 +1,25 @@
+{ lib, ... }:
+let
+  inherit (builtins) readDir;
+  inherit (lib.attrsets) foldlAttrs;
+  inherit (lib.lists) optional;
+  by-name = ./plugins;
+in
 {
-  imports = [
-    ./blink-cmp
-    ./colorschemes
-    ./extra-files
-    ./git
-    ./languages
-    ./navigation
-    ./status
-    ./utils
-    ./diagnostics.nix
-    ./extra-packages.nix
-    ./keymaps.nix
-    ./options.nix
-    ./extra-packages.nix
-  ];
+  # Plugin by-name directory imports
+  imports =
+    (foldlAttrs (
+      prev: name: type:
+      prev ++ optional (type == "directory") (by-name + "/${name}")
+    ) [ ] (readDir by-name))
+    ++ [
+      # keep-sorted start
+      ./helpers
+      ./lsp
+      ./keymaps.nix
+      ./options.nix
+      ./packages.nix
+      # keep-sorted end
+    ];
+
 }
