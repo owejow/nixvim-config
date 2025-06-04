@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   plugins = {
     lsp = {
       enable = true;
@@ -42,6 +43,8 @@
     lsp-lines.enable = true;
   };
 
-  diagnostic.settings = { virtual_lines.only_current_line = true; };
-  extraConfigLua = lib.readFile ./lsp-extra-lua-config.lua;
+  diagnostic.settings = {
+    virtual_lines.only_current_line = true;
+  };
+  # extraConfigLua = lib.readFile ./lsp-extra-lua-config.lua;
 }

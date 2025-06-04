@@ -8,6 +8,7 @@
     ./navigation
     ./status
     ./utils
+    ./diagnostics.nix
     ./extra-packages.nix
     ./keymaps.nix
     ./options.nix
