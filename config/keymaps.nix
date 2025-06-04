@@ -26,15 +26,5 @@
         silent = true;
       };
     }
-    {
-      key = "<leader>q";
-      action = ":copen<cr>";
-
-      options = {
-        desc = "open quickfix list";
-        silent = true;
-      };
-    }
-
   ];
 }
