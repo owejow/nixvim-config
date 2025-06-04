@@ -67,10 +67,6 @@
           timeout_ms = 2000;
           stop_after_first = true;
         };
-        elixir = [ "mix" ];
-        eelixir = [ "mix" ];
-        heex = [ "mix" ];
-        surface = [ "mix" ];
         yaml = [ "yamlfmt" ];
 
       };
@@ -126,7 +122,7 @@
         if bufname:match("/node_modules/") then
         return
         end
-        return { timeout_ms = 1000, lsp_fallback = true }
+        return { timeout_ms = 2000, lsp_fallback = true }
         end
       '';
     };
