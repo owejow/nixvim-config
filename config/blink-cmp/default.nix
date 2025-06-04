@@ -1,1 +1,3 @@
-{ imports = [ ./blink-cmp.nix ]; }
+{
+  imports = [ ./blink-cmp.nix ];
+}
