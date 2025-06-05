@@ -14,6 +14,7 @@ in
     ) [ ] (readDir by-name))
     ++ [
       # keep-sorted start
+      ./diagnostics.nix
       ./helpers
       ./lsp
       ./keymaps.nix
