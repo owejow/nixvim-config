@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   plugins = {
     lsp = {
@@ -9,7 +10,9 @@
         elixirls.enable = true;
         gopls.enable = true;
         html.enable = true;
-        lua_ls.enable = true;
+        lua_ls = {
+          enable = true;
+        };
         jsonls.enable = true;
         marksman.enable = true;
         nixd = {
@@ -44,9 +47,8 @@
     inc-rename.enable = true;
     lsp-lines.enable = true;
   };
-
   diagnostic.settings = {
     virtual_lines.only_current_line = true;
   };
-  # extraConfigLua = lib.readFile ./lsp-extra-lua-config.lua;
+  extraConfigLua = lib.readFile ./extra-lua-config.lua;
 }

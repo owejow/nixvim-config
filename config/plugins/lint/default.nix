@@ -43,5 +43,6 @@ in
       };
     };
   };
+  extraConfigLua = lib.readFile ./luacheck_with_vim.lua;
 
 }

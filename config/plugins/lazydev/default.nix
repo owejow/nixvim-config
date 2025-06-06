@@ -1,5 +1,7 @@
 {
   plugins = {
-    lazydev.enable = true;
+    lazydev = {
+      enable = true;
+    };
   };
 }
