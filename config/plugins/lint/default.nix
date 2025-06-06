@@ -43,4 +43,16 @@ in
       };
     };
   };
+
+  autoCmd = [
+    {
+      event = [
+        "BufEnter"
+        "BufWritePost"
+        "InsertLeave"
+      ];
+      pattern = [ "*" ];
+      command = ''silent! lua require("lint").try_lint()'';
+    }
+  ];
 }
