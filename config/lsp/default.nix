@@ -29,14 +29,17 @@
       };
       keymaps.lspBuf = {
         "gd" = "definition";
-        "gD" = "references";
-        "gt" = "type_definition";
+        "gr" = "references";
+        "gD" = "declaration";
+        "gT" = "type_definition";
         "gi" = "implementation";
         "K" = "hover";
         "<leader>cm" = "format";
         "<leader>cr" = "rename";
         "<leader>ca" = "code_action";
+        "<C-s>" = "signature_help";
       };
+
     };
     inc-rename.enable = true;
     lsp-lines.enable = true;
