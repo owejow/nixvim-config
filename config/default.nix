@@ -14,6 +14,7 @@ in
     ) [ ] (readDir by-name))
     ++ [
       # keep-sorted start
+      ./autocmd
       ./diagnostics.nix
       ./helpers
       ./lsp
