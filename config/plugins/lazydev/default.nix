@@ -1,7 +1,8 @@
 {
   plugins = {
     lazydev = {
-      enable = false;
+      enable = true;
+
       settings = {
         enabled = true;
         library = [

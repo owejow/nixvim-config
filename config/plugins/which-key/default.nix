@@ -32,13 +32,6 @@
       ];
 
       replace = {
-        # key = [
-        #   [
-        #     "<Space>"
-        #     "SPC"
-        #   ]
-        # ];
-
         desc = [
           [
             "<space>"
