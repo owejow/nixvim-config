@@ -9,23 +9,35 @@ in
     pkg.curl
     pkg.clang-tools
     pkg.cmake-format
+    pkg.deadnix
     pkg.fd
     pkg.fzf
     pkg.gotools
     pkg.gofumpt
     pkg.golines
+    pkg.golangci-lint
+    pkg.htmlhint
     pkg.isort
     pkg.jq
+    pkg.nodePackages.jsonlint
     pkg.lldb
+    pkg.luaPackages.luacheck
+    pkg.markdownlint-cli
+    pkg.nix
     pkg.nixfmt-rfc-style
+    pkg.pylint
     pkg.ripgrep
     pkg.ruff
     pkg.rustfmt
+    pkg.pkgs.rust-analyzer
     pkg.shellcheck
     pkg.shellharden
+    pkg.sqlfluff
     pkg.stylua
+    pkg.stylelint
     pkg.ueberzugpp
     pkg.viu
     pkg.yamlfmt
+    pkg.yamllint
   ];
 }

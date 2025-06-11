@@ -62,5 +62,6 @@
         desc = "Global Diagnostics toggle";
       };
     }
+
   ];
 }
