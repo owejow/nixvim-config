@@ -6,7 +6,7 @@
       updatetime = 100; # Faster completion
 
       number = true;
-      relativenumber = false;
+      relativenumber = true;
       splitbelow = true;
       splitright = true;
       scrolloff = 4;
@@ -30,6 +30,7 @@
 
       termguicolors = lib.mkForce pkgs.stdenv.isLinux;
       foldlevelstart = 99;
+
     };
     globals = {
       autoformat = true;
