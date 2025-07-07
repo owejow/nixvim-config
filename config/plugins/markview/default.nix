@@ -45,10 +45,27 @@
   keymaps = lib.mkIf config.plugins.markview.enable [
     {
       mode = "n";
-      key = "<leader>um";
+      key = "<leader>umt";
       action = "<cmd>Markview toggle<CR>";
       options = {
         desc = "Toggle Markdown Preview";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>umd";
+      action = "<cmd>Markview Disable<CR>";
+      options = {
+        desc = "Disable Markdown Preview";
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>ume";
+      action = "<cmd>Markview Enable<CR>";
+      options = {
+        desc = "Enable Markdown Preview";
       };
     }
   ];
