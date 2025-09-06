@@ -17,7 +17,7 @@
       ];
     in
     {
-      enable = true;
+      enable = false;
 
       settings = {
         preview = {
