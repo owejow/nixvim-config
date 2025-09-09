@@ -29,7 +29,6 @@ in
     pkg.ripgrep
     pkg.ruff
     pkg.rustfmt
-    pkg.pkgs.rust-analyzer
     pkg.shellcheck
     pkg.shellharden
     pkg.sqlfluff

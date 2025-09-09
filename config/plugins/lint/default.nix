@@ -18,7 +18,7 @@ in
         json = [ "jsonlint" ];
         lua = [ "luacheck" ];
         markdown = [ "markdownlint" ];
-        rust = [ "clippy" ];
+        # rust = [ "clippy" ];
         sh = [ "shellcheck" ];
         sql = [ "sqlfluff" ];
         typescript = [ "biomejs" ];
@@ -27,7 +27,7 @@ in
       linters = {
         biomejs.cmd = lib.getExe pkgs.biome;
         clangtidy.cmd = lib.getExe' pkgs.clang-tools "clang-tidy";
-        clippy.cmd = lib.getExe pkgs.rust-analyzer;
+        # clippy.cmd = lib.getExe pkgs.rust-analyzer;
         deadnix.cmd = lib.getExe pkgs.deadnix;
         golangcilint.cmd = lib.getExe pkgs.golangci-lint;
         htmlhint.cmd = lib.getExe pkgs.htmlhint;

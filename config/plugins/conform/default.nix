@@ -50,7 +50,7 @@
           "isort"
           "ruff"
         ];
-        rust = [ "rustfmt" ];
+        # rust = [ "rustfmt" ];
         scss = [ "prettierd" ];
         sh = [
           "shellcheck"
