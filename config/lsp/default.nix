@@ -24,6 +24,7 @@
         };
         pyright.enable = true;
         ruff.enable = true;
+        slint_lsp.enable = true;
         tailwindcss.enable = true;
         ts_ls.enable = true;
         yamlls.enable = true;
