@@ -2,7 +2,9 @@
   plugins = {
     rainbow-delimiters = {
       enable = false;
-      blacklist = [ "zig" ];
+      settings = {
+        blacklist = [ "zig" ];
+      };
     };
   };
 }

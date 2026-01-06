@@ -15,7 +15,7 @@ in
         go = [ "golangcilint" ];
         html = [ "htmlhint" ];
         javascript = [ "biomejs" ];
-        json = [ "jsonlint" ];
+        #json = [ "jsonlint" ];
         lua = [ "luacheck" ];
         markdown = [ "markdownlint" ];
         # rust = [ "clippy" ];
@@ -31,7 +31,7 @@ in
         deadnix.cmd = lib.getExe pkgs.deadnix;
         golangcilint.cmd = lib.getExe pkgs.golangci-lint;
         htmlhint.cmd = lib.getExe pkgs.htmlhint;
-        jsonlint.cmd = lib.getExe pkgs.nodePackages.jsonlint;
+        #jsonlint.cmd = lib.getExe pkgs.nodePackages.jsonlint;
         luacheck.cmd = lib.getExe pkgs.luaPackages.luacheck;
         markdownlint.cmd = lib.getExe pkgs.markdownlint-cli;
         nix.cmd = lib.getExe' pkgs.nix "nix-instantiate";

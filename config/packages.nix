@@ -19,7 +19,7 @@ in
     pkg.htmlhint
     pkg.isort
     pkg.jq
-    pkg.nodePackages.jsonlint
+    #pkg.nodePackages.jsonlint
     pkg.lldb
     pkg.luaPackages.luacheck
     pkg.markdownlint-cli
